@@ -28,6 +28,7 @@ end
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 kmap('<Esc>', '<cmd>nohlsearch<CR>')
+kmapl('k', '<cmd>WhichKey<CR>')
 -- visual selection as lua
 kmapl('cl', function()
   vim.cmd "'<,'>lua"
