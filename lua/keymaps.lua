@@ -6,7 +6,7 @@ local chain_paths = {
   { '<leader>d', group = '[D]ocument' },
   { '<leader>r', group = '[R]ename' },
   { '<leader>s', group = '[S]earch' },
-  { '<leader>w', group = '[W]indows' },
+  --  { '<leader>w', group = '[W]indows' },
   { '<leader>t', group = '[T]' },
   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
   { '<leader>l', group = '[L]ocations' },
@@ -29,6 +29,7 @@ end
 --  See `:help hlsearch`
 kmap('<Esc>', '<cmd>nohlsearch<CR>')
 kmapl('k', '<cmd>WhichKey<CR>')
+kmapl('w', '<C-w>')
 -- visual selection as lua
 kmapl('cl', function()
   vim.cmd "'<,'>lua"
@@ -47,6 +48,7 @@ end, 'E[x]plorer')
 kmapl('pl', function()
   vim.cmd 'Lazy'
 end, '[L]azy')
+kmap('sj', '<cmd>HopChar2<CR>', '[j]ump')
 
 -- Diagnostic keymaps
 kmapl('q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list')
