@@ -28,6 +28,8 @@ end
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 kmap('<Esc>', '<cmd>nohlsearch<CR>')
+-- disable the default behavior of 's'
+kmap('s', '<Nop>')
 -- visual block mode without <C-v> because windows
 kmap('<C-b>', '<C-v>', 'visual block mode', 'v')
 kmapl('k', '<cmd>WhichKey<CR>')
