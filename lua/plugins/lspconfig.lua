@@ -210,6 +210,7 @@ return {
     require('mason-lspconfig').setup {
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,
+      automatic_enable = true,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
@@ -217,10 +218,10 @@ return {
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for ts_ls)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
+          vim.lsp.config(server_name).setup(server)
         end,
       },
     }
-    require('lspconfig').nushell.setup {}
+    vim.lsp.config('nushell', {})
   end,
 }
