@@ -33,14 +33,10 @@ return { -- Collection of various small independent plugins/modules
     statusline.setup { use_icons = vim.g.have_nerd_font }
 
     -- You can configure sections in the statusline by overriding their
-    -- default behavior. For example, here we set the section for
-    -- cursor location to LINE:COLUMN
+    -- default behavior.
     ---@diagnostic disable: duplicate-set-field
     statusline.section_location = function()
       return '%l:%-v (%p%%)'
-    end
-    statusline.section_mode = function()
-      return string.upper(vim.call 'mode')
     end
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
