@@ -45,4 +45,15 @@ return { -- Useful plugin to show you pending keybinds.
     -- Document existing key chains
     spec = require('keymaps').groupings,
   },
+  keys = {
+    {
+      '<leader>?',
+      function()
+        require('which-key').show {
+          global = true,
+        }
+      end,
+      desc = 'All the keymaps (which-key)',
+    },
+  },
 }
