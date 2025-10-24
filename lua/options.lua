@@ -10,6 +10,7 @@ local opts = {
   mouse = 'a',
   showmode = false,
   breakindent = true,
+  autoindent = true,
   undofile = true,
   ignorecase = true,
   smartcase = true,
@@ -35,5 +36,5 @@ end
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  vim.opt.clipboard = 'unnamed'
 end)

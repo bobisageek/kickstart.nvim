@@ -222,6 +222,7 @@ return {
         end,
       },
     }
-    vim.lsp.config('nushell', {})
+    vim.lsp.config('nushell', { cmd = { 'nu', '-n', '--lsp' } })
+    vim.lsp.enable 'nushell'
   end,
 }
