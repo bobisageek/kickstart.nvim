@@ -56,4 +56,10 @@ return { -- Useful plugin to show you pending keybinds.
       desc = 'All the keymaps (which-key)',
     },
   },
+  win = {
+    no_overlap = false,
+    wo = {
+      winblend = 80,
+    },
+  },
 }
