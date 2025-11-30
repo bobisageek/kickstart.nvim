@@ -87,6 +87,10 @@ kmap('<C-right>', '<C-w><C-l>', 'Move focus to the right window')
 kmap('<C-down>', '<C-w><C-j>', 'Move focus to the lower window')
 kmap('<C-up>', '<C-w><C-k>', 'Move focus to the upper window')
 
+-- visual indents stay selected
+kmap('>', '>gv', 'Indent', 'v')
+kmap('<', '<gv', 'Indent', 'v')
+
 return {
   groupings = chain_paths,
 }
