@@ -91,6 +91,8 @@ kmap('<C-up>', '<C-w><C-k>', 'Move focus to the upper window')
 kmap('>', '>gv', 'Indent', 'v')
 kmap('<', '<gv', 'Indent', 'v')
 
+kmapl('y', '"+y', 'Yank to system clipboard', { 'n', 'v' })
+kmapl('p', '"+p', 'Paste from system clipboard', { 'n', 'v' })
 return {
   groupings = chain_paths,
 }
