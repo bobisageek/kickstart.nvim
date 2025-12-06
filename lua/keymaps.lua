@@ -1,3 +1,5 @@
+local telescope = require 'telescope.builtin'
+
 -- we'll use this table in which-key later
 -- to document the keymap 'paths'
 -- it's here as a TOC for guidance on assigning new keymaps
@@ -65,7 +67,7 @@ end, '[L]azy')
 kmap('sj', '<cmd>HopChar2<CR>', '[j]ump')
 
 -- Diagnostic keymaps
-kmapl('q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list')
+kmapl('q', telescope.diagnostics, 'Open diagnostic [Q]uickfix list')
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
