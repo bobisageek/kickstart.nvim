@@ -6,12 +6,12 @@ local chain_paths = {
   { '<leader>d', group = '[D]ocument' },
   { '<leader>r', group = '[R]ename' },
   { '<leader>s', group = '[S]earch' },
-  --  { '<leader>w', group = '[W]indows' },
   { '<leader>t', group = '[T]' },
   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
   { '<leader>l', group = '[L]ocations' },
   { '<leader>f', group = '[F]iles', icon = '' },
-  { '<leader>p', group = '[P]lugins' },
+  { '<leader>o', group = '[O]rg mode' },
+  { '<leader>]', group = 'Plugins' },
 }
 
 vim.keymap.set('n', '<C-p>', function()
@@ -59,7 +59,7 @@ end, '[r]egion comments')
 kmapl('fx', function()
   vim.cmd 'Ex'
 end, 'E[x]plorer')
-kmapl('pl', function()
+kmapl(']l', function()
   vim.cmd 'Lazy'
 end, '[L]azy')
 kmap('sj', '<cmd>HopChar2<CR>', '[j]ump')
