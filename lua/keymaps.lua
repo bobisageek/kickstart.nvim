@@ -16,6 +16,8 @@ local chain_paths = {
   { '<leader>f', group = '[F]iles', icon = '' },
   { '<leader>o', group = '[O]rg mode' },
   { '<leader>]', group = 'Plugins' },
+  { '<leader>:', group = 'Commands' },
+  { '<leader>m', group = '[M]eta (neovim-related)' },
 }
 
 vim.keymap.set('n', '<C-p>', function()
@@ -49,9 +51,8 @@ kmap('<C-b>', '<C-v>', 'visual block mode', 'v')
 kmapl('k', '<cmd>WhichKey<CR>', 'which-key (all the keys)')
 kmapl('w', '<C-w>')
 -- visual selection as lua
-kmapl('cl', function()
-  vim.cmd "'<,'>lua"
-end, 'Execute selection as vim[l]ua', 'v')
+kmapl('ml', ':lua<CR>', 'Execute selection as vim[l]ua', 'v')
+kmapl('mf', '<cmd>w<CR><cmd>source %<CR>', 'save and source this [f]ile')
 -- all locations found by todo-comments
 kmapl('lt', function()
   vim.cmd 'TodoTelescope'
@@ -101,6 +102,17 @@ kmapl('p', '"+p', 'Paste from system clipboard', { 'n', 'v' })
 -- git stuff via telescope
 kmapl('gl', telescope.git_commits, 'Git [l]og')
 kmapl('gh', telescope.git_bcommits, 'Git [h]istory')
+
+kmapl('so', telescope.vim_options, '[S]earch vim [O]ptions')
+
+-- like normal mode's '*', but search in the workspace
+kmap('<A-*>', function()
+  telescope.grep_string { word_match = '-w' }
+end, 'find word in cwd')
+
+-- commands
+kmapl(':a', telescope.commands, '[a]ll commands')
+kmapl(':h', telescope.command_history, '[h]istory')
 
 return {
   groupings = chain_paths,
