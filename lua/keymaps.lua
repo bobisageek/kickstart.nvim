@@ -5,10 +5,12 @@ local telescope = require 'telescope.builtin'
 -- it's here as a TOC for guidance on assigning new keymaps
 local chain_paths = {
   { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+  { '<leader>cw', group = '[W]orkspace' },
   { '<leader>d', group = '[D]ocument' },
   { '<leader>r', group = '[R]ename' },
   { '<leader>s', group = '[S]earch' },
   { '<leader>t', group = '[T]' },
+  { '<leader>g', group = '[G]it' },
   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
   { '<leader>l', group = '[L]ocations' },
   { '<leader>f', group = '[F]iles', icon = '' },
@@ -44,7 +46,7 @@ kmap('<Esc>', '<cmd>nohlsearch<CR>')
 kmap('s', '<Nop>')
 -- visual block mode without <C-v> because windows
 kmap('<C-b>', '<C-v>', 'visual block mode', 'v')
-kmapl('k', '<cmd>WhichKey<CR>')
+kmapl('k', '<cmd>WhichKey<CR>', 'which-key (all the keys)')
 kmapl('w', '<C-w>')
 -- visual selection as lua
 kmapl('cl', function()
@@ -52,11 +54,11 @@ kmapl('cl', function()
 end, 'Execute selection as vim[l]ua', 'v')
 -- all locations found by todo-comments
 kmapl('lt', function()
-  vim.cmd 'TodoLocList'
+  vim.cmd 'TodoTelescope'
 end, 'From [t]odo-comments')
 -- region locations
 kmapl('lr', function()
-  vim.cmd 'TodoLocList keywords=REGION'
+  vim.cmd 'TodoTelescope keywords=REGION'
 end, '[r]egion comments')
 kmapl('fx', function()
   vim.cmd 'Ex'
@@ -91,10 +93,15 @@ kmap('<C-up>', '<C-w><C-k>', 'Move focus to the upper window')
 
 -- visual indents stay selected
 kmap('>', '>gv', 'Indent', 'v')
-kmap('<', '<gv', 'Indent', 'v')
+kmap('<', '<gv', 'Outdent', 'v')
 
 kmapl('y', '"+y', 'Yank to system clipboard', { 'n', 'v' })
 kmapl('p', '"+p', 'Paste from system clipboard', { 'n', 'v' })
+
+-- git stuff via telescope
+kmapl('gl', telescope.git_commits, 'Git [l]og')
+kmapl('gh', telescope.git_bcommits, 'Git [h]istory')
+
 return {
   groupings = chain_paths,
 }
