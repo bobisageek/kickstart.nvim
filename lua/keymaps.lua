@@ -9,7 +9,7 @@ local chain_paths = {
   { '<leader>d', group = '[D]ocument' },
   { '<leader>r', group = '[R]ename' },
   { '<leader>s', group = '[S]earch' },
-  { '<leader>t', group = '[T]' },
+  { '<leader>t', group = '[T]erminal' },
   { '<leader>g', group = '[G]it' },
   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
   { '<leader>l', group = '[L]ocations' },
@@ -104,6 +104,10 @@ kmapl('gl', telescope.git_commits, 'Git [l]og')
 kmapl('gh', telescope.git_bcommits, 'Git [h]istory')
 
 kmapl('so', telescope.vim_options, '[S]earch vim [O]ptions')
+kmapl('sp', function()
+  telescope.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy') }
+end, '[S]earch [p]lugins with grep')
+-- kmapl ''
 
 -- like normal mode's '*', but search in the workspace
 kmap('<A-*>', function()
@@ -113,6 +117,14 @@ end, 'find word in cwd')
 -- commands
 kmapl(':a', telescope.commands, '[a]ll commands')
 kmapl(':h', telescope.command_history, '[h]istory')
+
+-- terminal stuff
+kmapl('tm', function()
+  vim.cmd.new()
+  vim.cmd.term 'nu'
+  vim.api.nvim_win_set_height(0, 10)
+  vim.cmd.startinsert()
+end, '[m]ini terminal window')
 
 return {
   groupings = chain_paths,
