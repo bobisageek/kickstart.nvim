@@ -5,7 +5,8 @@ return {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-    { 'williamboman/mason.nvim', opts = {} },
+    { 'mason-org/mason.nvim', opts = {} },
+    { 'mason-org/mason-lspconfig.nvim' },
 
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
@@ -157,13 +158,6 @@ return {
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
-      clojure_lsp = {},
-      -- clangd = {},
-      -- gopls = {},
-      -- pyright = {},
-      rust_analyzer = {},
-      -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },
@@ -180,9 +174,12 @@ return {
       nushell = { cmd = { 'nu', '-n', '--lsp' } },
     }
 
+    -- configure and enable servers with overrides
     for server_name, server in pairs(servers) do
       vim.lsp.config(server_name, server)
       vim.lsp.enable(server_name)
     end
+    -- enable servers installed by Mason
+    require('mason-lspconfig').setup()
   end,
 }
