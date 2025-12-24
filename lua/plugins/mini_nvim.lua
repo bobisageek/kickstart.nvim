@@ -45,5 +45,7 @@ return { -- Collection of various small independent plugins/modules
         racket = { glyph = '' },
       },
     }
+
+    require('mini.files').setup()
   end,
 }

@@ -1,4 +1,5 @@
 local telescope = require 'telescope.builtin'
+local mini_files = require 'custom.minifiles'
 
 -- we'll use this table in which-key later
 -- to document the keymap 'paths'
@@ -64,6 +65,7 @@ end, '[r]egion comments')
 kmapl('fx', function()
   vim.cmd 'Ex'
 end, 'E[x]plorer')
+kmapl('fm', mini_files.minifiles_toggle, '[m]ini')
 kmapl(']l', function()
   vim.cmd 'Lazy'
 end, '[L]azy')
@@ -106,7 +108,7 @@ kmapl('gh', telescope.git_bcommits, 'Git [h]istory')
 kmapl('so', telescope.vim_options, '[S]earch vim [O]ptions')
 kmapl('sp', function()
   telescope.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy') }
-end, '[S]earch [p]lugins with grep')
+end, '[S]earch [p]lugin files')
 -- kmapl ''
 
 -- like normal mode's '*', but search in the workspace

@@ -19,6 +19,7 @@ local opts = {
   timeoutlen = 300,
   splitright = true,
   splitbelow = true,
+  whichwrap = 'bshl<>~[]',
   list = true,
   listchars = { tab = '» ', trail = '·', lead = '·', nbsp = '␣' },
   inccommand = 'split',
