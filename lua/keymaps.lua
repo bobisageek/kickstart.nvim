@@ -10,7 +10,7 @@ local chain_paths = {
   { '<leader>d', group = '[D]ocument' },
   { '<leader>r', group = '[R]ename' },
   { '<leader>s', group = '[S]earch' },
-  { '<leader>t', group = '[T]erminal' },
+  { '<leader>t', group = '[T]erminal/[T]abs' },
   { '<leader>g', group = '[G]it' },
   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
   { '<leader>l', group = '[L]ocations' },
@@ -121,13 +121,34 @@ end, 'find word in cwd')
 kmapl(':a', telescope.commands, '[a]ll commands')
 kmapl(':h', telescope.command_history, '[h]istory')
 
+-- shortcut for leader-t
+local function kmapt(keys, func, desc, mode)
+  kmap('<leader>t' .. keys, func, desc, mode)
+end
+
 -- terminal stuff
-kmapl('tm', function()
+kmapt('m', function()
   vim.cmd.new()
   vim.cmd.term 'nu'
   vim.api.nvim_win_set_height(0, 10)
   vim.cmd.startinsert()
 end, '[m]ini terminal window')
+kmapt('t', function()
+  vim.cmd.tabnew()
+  vim.cmd.term 'nu'
+  vim.cmd.startinsert()
+end, 'terminal in new [t]ab')
+
+-- tabs
+
+kmapt('n', '<cmd>tabnew<CR>', 'New')
+kmapt('N', function()
+  vim.cmd.tabnew()
+  telescope.find_files()
+end, 'New w/ find')
+kmapt('x', '<cmd>tabclose<CR>', 'Close')
+kmapt('l', '<cmd>tabNext<CR>', 'Next')
+kmapt('h', '<cmd>tabprevious<CR>', 'Next')
 
 return {
   groupings = chain_paths,
