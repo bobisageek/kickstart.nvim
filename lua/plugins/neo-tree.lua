@@ -19,6 +19,8 @@ return {
         mappings = {
           ['\\'] = 'close_window',
           ['<S-<CR>>'] = 'open',
+          ['g.'] = 'toggle_hidden',
+          ['!'] = 'set_root',
         },
       },
     },

@@ -104,6 +104,7 @@ kmapl('p', '"+p', 'Paste from system clipboard', { 'n', 'v' })
 -- git stuff via telescope
 kmapl('gl', telescope.git_commits, 'Git [l]og')
 kmapl('gh', telescope.git_bcommits, 'Git [h]istory')
+kmapl('gs', telescope.git_status, 'Git [s]tatus')
 
 kmapl('so', telescope.vim_options, '[S]earch vim [O]ptions')
 kmapl('sp', function()
