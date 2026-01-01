@@ -32,7 +32,10 @@ local set_cwd = function()
   if path == nil then
     return vim.notify 'Cursor is not on valid entry'
   end
-  vim.fn.chdir(vim.fs.dirname(path))
+  local newdir = vim.fs.dirname(path)
+  if vim.fn.chdir(newdir) then
+    vim.print(newdir)
+  end
 end
 
 -- REGION: open files in splits
