@@ -1,5 +1,6 @@
 require 'globals'
 require 'options'
+require 'ftdetect'
 
 -- REGION: autocommands
 --
