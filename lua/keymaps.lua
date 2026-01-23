@@ -21,6 +21,9 @@ local chain_paths = {
   { '<leader>m', group = '[M]eta (neovim-related)' },
 }
 
+-- comment the line
+vim.keymap.set('n', '<leader>cc', 'gcc', { desc = 'Toggle Line Comment', remap = true })
+
 vim.keymap.set('n', '<C-p>', function()
   vim.cmd 'startinsert'
   require('which-key').show {

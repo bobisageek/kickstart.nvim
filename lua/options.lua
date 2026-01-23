@@ -26,6 +26,8 @@ local opts = {
   cursorline = true,
   scrolloff = 20,
   confirm = true,
+  title = true,
+  titlestring = 'Nvim (%{getcwd()}) - %t',
 }
 -- set each opt
 for k, v in pairs(opts) do
