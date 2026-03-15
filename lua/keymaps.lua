@@ -45,6 +45,9 @@ local function kmapl(keys, func, desc, mode)
   kmap('<leader>' .. keys, func, desc, mode)
 end
 
+kmap('jk', '<Esc>', 'normal mode', 'i')
+kmap('kj', '<Esc>', 'normal mode', 'i')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 kmap('<Esc>', '<cmd>nohlsearch<CR>')
