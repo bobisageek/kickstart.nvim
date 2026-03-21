@@ -28,6 +28,7 @@ local opts = {
   confirm = true,
   title = true,
   titlestring = 'Nvim (%{getcwd()}) - %t',
+  shortmess = 'ltToOCFI',
 }
 -- set each opt
 for k, v in pairs(opts) do
