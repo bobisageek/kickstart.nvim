@@ -1,3 +1,5 @@
+local little_bit_brighter = '#5d5f63'
+
 return { -- You can easily change to a different colorscheme.
   -- Change the name of the colorscheme plugin below, and then
   -- change the command in the config to whatever the name of that colorscheme is.
@@ -17,7 +19,10 @@ return { -- You can easily change to a different colorscheme.
         local dark_red = '#330303'
         local dark_yellow = '#242201'
         local dark_blue = '#012324'
-        hl.CursorLine = { bg = dark_blue }
+        local white = '#ffffff'
+        hl.CursorLine = { bg = dark_yellow }
+        hl.LineNrAbove = { fg = little_bit_brighter }
+        hl.LineNrBelow = { fg = little_bit_brighter }
       end,
     }
     -- Load the colorscheme here.

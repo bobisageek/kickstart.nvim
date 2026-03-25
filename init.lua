@@ -2,6 +2,10 @@ require 'globals'
 require 'options'
 require 'ftdetect'
 
+if (vim.fn.has 'nvim-0.12') == 1 then
+  require('vim._core.ui2').enable { enable = true }
+end
+
 -- REGION: autocommands
 --
 --  See `:help lua-guide-autocommands`
