@@ -29,6 +29,7 @@ local opts = {
   title = true,
   titlestring = 'Nvim (%{getcwd()}) - %t',
   shortmess = 'ltToOCFI',
+  guifont = 'JetBrainsMono Nerd Font Mono:h14'
 }
 -- set each opt
 for k, v in pairs(opts) do

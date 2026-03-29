@@ -48,6 +48,11 @@ end
 kmap('jk', '<Esc>', 'normal mode', 'i')
 kmap('kj', '<Esc>', 'normal mode', 'i')
 
+-- copilot thing, might change later
+kmap('<C-S-right>', '<Plug>(copilot-accept-word)', 'Accept Copilot suggestion word by word', 'i')
+kmap('<C-S-up>', '<Plug>(copilot-next)', 'Cycle to the next Copilot suggestion', 'i')
+kmap('<C-S-down>', '<Plug>(copilot-previous)', 'Cycle to the previous Copilot suggestion', 'i')
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 kmap('<Esc>', '<cmd>nohlsearch<CR>')
@@ -120,6 +125,9 @@ end, '[S]earch [p]lugin files')
 
 -- like normal mode's '*', but search in the workspace
 kmap('<A-*>', function()
+  telescope.grep_string { word_match = '-w' }
+end, 'find word in cwd')
+kmap('<A-S-8>', function()
   telescope.grep_string { word_match = '-w' }
 end, 'find word in cwd')
 
