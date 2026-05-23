@@ -24,16 +24,6 @@ local chain_paths = {
 -- comment the line
 vim.keymap.set('n', '<leader>cc', 'gcc', { desc = 'Toggle Line Comment', remap = true })
 
-vim.keymap.set('n', '<C-p>', function()
-  vim.cmd 'startinsert'
-  require('which-key').show {
-    mode = 'i',
-    keys = '<C-r>',
-  }
-  local k = vim.api.nvim_replace_termcodes('<Esc>', true, false, true)
-  vim.api.nvim_feedkeys(k, 't', true)
-end)
-
 --  See `:help vim.keymap.set()`
 local kmap = function(keys, func, desc, mode)
   desc = desc or ''
