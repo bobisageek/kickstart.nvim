@@ -71,6 +71,7 @@ kmapl(']l', function()
   vim.cmd 'Lazy'
 end, '[L]azy')
 kmap('sj', '<cmd>HopChar2<CR>', '[j]ump')
+kmap('<C-s>', '<cmd>wa<CR>', 'Save all')
 
 -- Diagnostic keymaps
 kmapl('q', telescope.diagnostics, 'Open diagnostic [Q]uickfix list')
