@@ -47,5 +47,9 @@ return { -- Collection of various small independent plugins/modules
     }
 
     require('mini.files').setup()
+    require('mini.indentscope').setup {
+      symbol = '│',
+      options = { try_as_border = true, indent_at_cursor = false },
+    }
   end,
 }
